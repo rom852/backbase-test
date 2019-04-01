@@ -8,6 +8,11 @@ export const randomString = (length, chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGH
     return result;
 };
 
+export const randomNumber = (length) => {
+    return Math.random().toString().slice(2,length+2);
+};
+
+
 const getMeta = elementItem => {
     const locator = elementItem && elementItem.elementArrayFinder_ && elementItem.elementArrayFinder_.locator_;
     return {

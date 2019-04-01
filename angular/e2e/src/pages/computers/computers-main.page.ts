@@ -17,4 +17,7 @@ export class ComputersMainPage extends AbstractPage {
         await waitForPresenceOf(this.table);
     }
 
+    async clickAddComputerButton() {
+        await this.addNewButton.click();
+    }
 }

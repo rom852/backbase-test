@@ -13,9 +13,8 @@ process.env.DEBUG = 'axios';
 let mainHost = process.env.MAIN_HOST || 'http://computer-database.herokuapp.com';
 
 const baseAppConfig = {
-    mainHost: mainHost,
-    mainHostParsed: urlParse(mainHost),
-    development: process.env.DEVELOPMENT === 'true',
+  development: process.env.DEVELOPMENT === 'true',
+  mainHost: mainHost,
     seleniumHubHost: process.env.SELENIUM_HOST || 'http://localhost:4444/wd/hub'
 };
 
@@ -110,11 +109,5 @@ let config = {
         });
     }
 };
-
-//  if DEVELOPMENT=true, tests will run directly, without selenoid
-if (baseAppConfig.development) {
-    config.directConnect = true;
-    config.seleniumAddress = null;
-}
 
 exports.config = config;
