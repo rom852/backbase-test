@@ -1,0 +1,39 @@
+{
+  "lintOptions": {
+    "typeCheck": true
+  },
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "rules": {
+    "ordered-imports": false,
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "object-literal-shorthand": false,
+    "max-classes-per-file": false,
+    "arrow-parens": false,
+    "no-reference": false,
+    "array-type": false,
+    "interface-name": [true, "never-prefix"],
+    "interface-over-type-literal": false,
+    "align": false,
+    "class-name": true,
+    "curly": true,
+    "forin": true,
+    "label-position": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-variable": true,
+    "no-empty": false,
+    "no-empty-interface": false,
+    "no-eval": true,
+    "no-string-literal": false,
+    "no-unused-variable": false,
+    "no-unused-expression": false,
+    "no-use-before-declare": false,
+    "radix": true,
+    "triple-equals": [true, "allow-null-check"],
+    "variable-name": false
+  }
+}

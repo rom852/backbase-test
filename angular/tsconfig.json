@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "build/resources/main/static/app",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "mp-shared": ["dist_lib/mp-shared"],
+      "mp-shared/*": ["dist_lib/mp-shared/*"]
+    }
+  },
+  "exclude": ["functional-tests", "node_modules", "./gulpfile.ts", "dist/lib"]
+}
