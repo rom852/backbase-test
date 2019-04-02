@@ -51,11 +51,6 @@ export class SetupService {
 
     async setup() {
         console.log('Starting setup...');
-        console.log('Connection to DB ...');
-        console.log('Connected!');
-
-
-        console.log('Setup ended!');
     }
 
 
