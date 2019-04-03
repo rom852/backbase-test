@@ -12,7 +12,7 @@ import * as FormData from 'form-data';
 export class ComputerApiService {
     @lazyInject(TYPES.Repository.RestApi) private restApi: RestApi;
     @lazyInject(TYPES.Config) private config: Config;
-    @lazyInject(TYPES.Context.Shared)  sharedContext: SharedContext;
+    @lazyInject(TYPES.Context.Shared) private sharedContext: SharedContext;
 
 
     private readonly computersApiHost: string;
@@ -30,15 +30,14 @@ export class ComputerApiService {
             this.sharedContext.createdComputers[computer.name] = computer;
 
             const bodyFormData = new FormData();
-            bodyFormData.append('name', 'qwefq');
-            bodyFormData.append('introduced', '2019-01-31');
-            bodyFormData.append('discontinued', '2019-01-31');
-            bodyFormData.append('company', '1');
+            bodyFormData.append('name', computer.name);
+            bodyFormData.append('introduced', computer.introducedDate);
+            bodyFormData.append('discontinued', computer.discontinuedDate);
+            bodyFormData.append('company', computer.company);
             await this.restApi.post(`${this.computersApiHost}/${this.addComputerUrl}`, bodyFormData,{
                 headers: {
-                    'Content-Type':'multipart/form-data'
-                }
-            });
+                    'content-type': `multipart/form-data; boundary=${bodyFormData._boundary}`,
+                }});
         }
     }
 }

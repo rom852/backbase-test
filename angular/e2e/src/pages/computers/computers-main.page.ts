@@ -1,8 +1,7 @@
 import {AbstractPage} from "../abstract.page";
-import {$, $$, by, element} from "protractor";
+import {$, $$, by} from "protractor";
 import {waitForPresenceOf} from "../../utils/protractor";
 import {Computer} from "../../models/Computer";
-import {expect} from "../../assertions/_core";
 import {lazyInject} from "../../core/dependency-injection/di.config";
 import {TYPES} from "../../core/dependency-injection/types";
 import {SharedContext} from "../../context/shared.context";
@@ -30,19 +29,16 @@ export class ComputersMainPage extends AbstractPage {
 
     async parseTable() {
           const parsedTable: {[name: string]: Computer} = {};
-          const table =await $('.computers.zebra-striped');
-          const computersCount = (await $$('tr')).length;
-        for (let i=1;i<computersCount; i++){
+          const computersArray = await $$('tr');
+        for (let i=1;i<computersArray.length; i++){
             const computer =  Computer.defaults;
-            const row = await table.all(by.xpath('//tbody/tr['+i+']/td')).getText();
+            const row = await computersArray[i].all(by.css('td')).getText();
             computer.name = row[0];
             computer.introducedDate = row[1];
             computer.discontinuedDate = row[2];
             computer.company = row[3];
              parsedTable[computer.name] = computer;
         }
-
-        console.log('com   '+ parsedTable['ASCI Blue Pacific'].name);
         return  parsedTable;
     }
 
@@ -50,4 +46,11 @@ export class ComputersMainPage extends AbstractPage {
        await this.searchField.sendKeys(name);
         await this.filterButton.click();
     }
+
+    async assertLastAddedComputer() {
+        const lastComputer  =await this.sharedContext.computer.name;
+        const table = await this.parseTable();
+        console.log('LAST: '+ JSON.stringify(table[lastComputer]));
+    }
+
 }

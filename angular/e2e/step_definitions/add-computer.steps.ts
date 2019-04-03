@@ -48,6 +48,10 @@ Given(/^user searches for last added computer?$/,async () => {
     }
 );
 
+Given(/^assert last added computer displayed correctly in table?$/,async () => {
+        await computersMainPage.assertLastAddedComputer();
+    }
+);
 
 
 

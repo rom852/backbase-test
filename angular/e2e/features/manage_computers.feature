@@ -9,4 +9,5 @@ Feature: Adding, editing and deleting computers
     Given user opens Computers application
     And assert Computers main page is opened
     And user searches for last added computer
+    And assert last added computer displayed correctly in table
 
