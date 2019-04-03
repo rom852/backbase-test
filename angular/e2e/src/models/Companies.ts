@@ -1,4 +1,4 @@
-enum Companies {
+export enum Companies {
     'Apple Inc.' = 1,
 'Thinking Machines' = 2,
 'RCA' = 3,

@@ -5,6 +5,7 @@ import {Computer} from "../../models/Computer";
 import {SharedContext} from "../../context/shared.context";
 import {TYPES} from "../../core/dependency-injection/types";
 import {lazyInject} from "../../core/dependency-injection/di.config";
+import moment = require("moment");
 
 export class AddComputerPage extends AbstractPage {
     @lazyInject(TYPES.Context.Shared)  sharedContext: SharedContext;
@@ -33,8 +34,11 @@ export class AddComputerPage extends AbstractPage {
         this.sharedContext.computer = computer;
         this.sharedContext.createdComputers[computer.name] = computer;
         await this.nameField.sendKeys(computer.name);
-        await this.introducedField.sendKeys(computer.introducedDate);
-        await this.discontinuedField.sendKeys(computer.discontinuedDate);
+        // if date is null, converting to empty string, else- formatting
+        const creationDate = (computer.introducedDate == null) ? '': moment(computer.introducedDate ).format('YYYY-MM-DD');
+        const discontinuedDate = (computer.discontinuedDate == null) ? '': moment(computer.discontinuedDate).format('YYYY-MM-DD');
+        await this.introducedField.sendKeys(creationDate);
+        await this.discontinuedField.sendKeys(discontinuedDate);
         await this.companySelect.$('[value=\"'+computer.company+'\"]').click();
         await this.createButton.click()
     }

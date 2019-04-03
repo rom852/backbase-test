@@ -4,8 +4,8 @@ import * as moment from 'moment';
 
 export interface BasicComputer {
     name: string;
-    introducedDate: string;
-    discontinuedDate: string;
+    introducedDate: any;
+    discontinuedDate: any;
     company: string;
 }
 
@@ -13,15 +13,15 @@ export class Computer {
 
     public static defaults: BasicComputer = {
         name: 'name',
-        introducedDate: '',
-        discontinuedDate: '',
+        introducedDate: null,
+        discontinuedDate: null,
         company: '1',
     };
 
     public static fromDefaults() {
 
-        const sysdate = new Date();
-        const creationDate = moment(sysdate).format('YYYY-MM-DD');
+        const creationDate = new Date();
+     ///   const creationDate = moment(sysdate).format('YYYY-MM-DD');
 
         const {name, introducedDate, discontinuedDate, company} = Object.assign(
             {},
@@ -29,7 +29,7 @@ export class Computer {
             {
                 name: 'Computer_'+ randomNumber(8),
                 introducedDate: creationDate,
-                discontinuedDate: '',
+                discontinuedDate: null,
                 company: '1'
             }
         );
@@ -38,8 +38,8 @@ export class Computer {
 
     constructor(
         public name: string,
-        public introducedDate: string,
-        public discontinuedDate: string,
+        public introducedDate: any,
+        public discontinuedDate: any,
         public company: string
     ) {}
 

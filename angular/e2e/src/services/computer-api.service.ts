@@ -6,6 +6,7 @@ import {Config} from "../core/config";
 import {Computer} from "../models/Computer";
 import {SharedContext} from "../context/shared.context";
 import * as FormData from 'form-data';
+import moment = require("moment");
 
 
 @injectable()
@@ -29,10 +30,13 @@ export class ComputerApiService {
             this.sharedContext.computer = computer;
             this.sharedContext.createdComputers[computer.name] = computer;
 
+            const creationDate = (computer.introducedDate == null) ? '': moment(computer.introducedDate ).format('YYYY-MM-DD');
+            const discontinuedDate = (computer.discontinuedDate == null) ? '': moment(computer.discontinuedDate).format('YYYY-MM-DD');
+
             const bodyFormData = new FormData();
             bodyFormData.append('name', computer.name);
-            bodyFormData.append('introduced', computer.introducedDate);
-            bodyFormData.append('discontinued', computer.discontinuedDate);
+            bodyFormData.append('introduced', creationDate);
+            bodyFormData.append('discontinued', discontinuedDate);
             bodyFormData.append('company', computer.company);
             await this.restApi.post(`${this.computersApiHost}/${this.addComputerUrl}`, bodyFormData,{
                 headers: {
