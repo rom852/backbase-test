@@ -18,7 +18,7 @@ const config = new AppConfig(process.env);
 DIContainer.bind<Config>(TYPES.Config).toConstantValue(config);
 
 // repositories
-DIContainer.bind<RestApi>(TYPES.RestApi).to(RestApi);
+DIContainer.bind<RestApi>(TYPES.Repository.RestApi).to(RestApi);
 
 // services
 DIContainer.bind<SetupService>(TYPES.Service.Setup).to(SetupService);

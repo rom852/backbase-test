@@ -21,15 +21,8 @@ const baseAppConfig = {
 const browserArguments = {
     chrome: [
         '--disable-dev-shm-usage',
-        '--disable-infobars',
         '--start-maximized',
-        '--ignore-certificate-errors',
-        `--unsafely-treat-insecure-origin-as-secure=${baseAppConfig.mainHost}`,
-        '--use-fake-ui-for-media-stream',
         '--allow-file-access-from-files',
-        '--use-fake-device-for-media-stream',
-        '--allow-running-insecure-content',
-        '--disable-web-security',
         '--window-size=1920,1080'
     ]
 };

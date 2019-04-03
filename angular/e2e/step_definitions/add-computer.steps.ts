@@ -38,6 +38,24 @@ Given(/^user adds new computer?$/,async () => {
     }
 );
 
+Given(/^assert computer exist in table?$/,async () => {
+        // TODO
+    }
+);
+
+Given(/^user searches for last added computer?$/,async () => {
+        await computersMainPage.searchForComputer();
+    }
+);
+
+Given(/^assert last added computer displayed correctly in table?$/,async () => {
+        await computersMainPage.assertLastAddedComputer();
+    }
+);
+
+
+
+
 
 After(() => {
     computersMainPage = null;
