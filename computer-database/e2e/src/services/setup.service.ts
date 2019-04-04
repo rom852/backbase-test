@@ -26,20 +26,6 @@ require('axios-debug-log')({
         debug('Boom', error);
     }
 });
-// axiosCookieJarSupport(axios);
-// axios.defaults.withCredentials = true;
-// axios.defaults.jar = new CookieJar();
-// const cookieJar = axios.defaults.jar as CookieJar;
-// axios.interceptors.request.use((config: AxiosRequestConfig) => {
-//     if (config.method === 'post') {
-//         const cookies: Cookie[] = cookieJar.getCookiesSync(config.url);
-//         const xsrfCookie = cookies.find(cookie => cookie.key === 'XSRF-TOKEN');
-//         if (xsrfCookie) {
-//             config.headers['X-XSRF-TOKEN'] = xsrfCookie.value;
-//         }
-//     }
-//     return config;
-// });
 
 @injectable()
 export class SetupService {

@@ -10,7 +10,7 @@ This is introduction for current e2e implementation. It contains explanation for
 - dictionary
 
 ### How to run
-To run e2e test you would need to `npm install` and `npm run e2e`. There are additional configurations how to run tests, described in **package.json** section
+To run e2e test you would need to `npm install` and `npm run e2e:develop`. There are additional configurations how to run tests, described in **package.json** section
 
 ###Project structure(elements to mention)
 ```$xslt

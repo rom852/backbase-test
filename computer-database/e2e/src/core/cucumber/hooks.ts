@@ -1,5 +1,5 @@
 import {After, Before, HookScenarioResult, Status, setDefaultTimeout} from 'cucumber';
-import {browser} from 'protractor';
+import {browser, protractor} from 'protractor';
 import {SCENARIO_TAGS, tagExistsByName} from './cucumber-utils';
 import {JSDOM} from 'jsdom';
 import {SetupService} from '../../services/setup.service';
@@ -15,7 +15,7 @@ let timer: number = null;
 
 // tslint:disable-next-line
 Before(async function(scenario: HookScenarioResult) {
-
+    protractor.browser.waitForAngularEnabled(false);
     timer = Date.now();
     console.log('Scenario started: ', timer);
 
