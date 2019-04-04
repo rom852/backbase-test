@@ -68,4 +68,7 @@ export class ComputersMainPage extends AbstractPage {
         assert.equal(displayedComputer.company, expectedCompany, 'Company is wrong');
     }
 
+    async editLastComputer() {
+        await $('tbody tr:nth-child(1) td > a').click();
+    }
 }

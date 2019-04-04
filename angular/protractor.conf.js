@@ -57,7 +57,7 @@ let config = {
             './e2e/src/services/setup.service.ts', // to run initial setup
             './e2e/step_definitions/**/*.ts'
         ],
-        tags: ['@Working'],
+        tags: ['~@NotReady'],
         strict: true,
         format: ['./node_modules/cucumber-pretty', 'json:e2e/results/results.json'],
         dryRun: false
