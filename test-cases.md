@@ -107,4 +107,18 @@ Preconditions:
       
 ### User should see error message if mandatory field "Name" is empty
 
+### User should see field highlighted with red if types Introduced date in invalid format
 
+### User should see field highlighted with red if types Discontinued date in invalid format
+
+### User should see success toast after adding computer
+
+### User should see success toast after deleting computer
+
+### User should be able to sort computers by Computer name
+
+### User should be able to sort computers by Introduced date
+
+### User should be able to sort computers by Discontinued date
+
+### User should be able to sort computers by Company
